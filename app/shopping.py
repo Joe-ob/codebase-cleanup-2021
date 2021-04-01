@@ -8,7 +8,7 @@ def format_usd(my_price):
     Formats a number as USD, with dollar sign, two decimals, and thousands seperator
 
     Params:
-        my_price (numeric, probably a float) we want to format
+        my_price (numeric, like a float or int) we want to format
 
     Example:
     format_usd(25.512) => $25.51
