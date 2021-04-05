@@ -15,7 +15,7 @@ def format_usd(my_price):
     """
     return f"${my_price:,.2f}"
 
-def lookup_product(product_id, all_products):
+def find_product(product_id, all_products):
     """Params :
             product_id (str) like "8"
             all_products (list of dict) each dict should have "id", "name", "department", "aisle", and "price" attribute:
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         if selected_id.upper() == "DONE":
             break
         else:
-            matching_product = lookup_product(selected_id, products)
+            matching_product = find_product(selected_id, products)
            
             if matching_product:
                 selected_products.append(matching_product)
