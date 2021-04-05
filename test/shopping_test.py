@@ -3,7 +3,7 @@
 import os
 from pandas import read_csv
 
-from app.shopping import format_usd, lookup_product
+from app.shopping import format_usd, find_product
 
 # TODO: test the code
 def test_format_usd():
@@ -15,9 +15,9 @@ mock_products_filepath = os.path.join(os.path.dirname(__file__), "mock_data", "m
 mock_products_df = read_csv(mock_products_filepath)
 mock_products = mock_products_df.to_dict("records")
 
-def test_lookups():
+def test_find_product():
     #with valid producvt id, returns the product info:
-    valid_result = lookup_product("8", mock_products)
+    valid_result = find_product("8", mock_products)
     assert valid_result == {
         'aisle': 'Aisle C',
         'department': 'snacks',
@@ -26,5 +26,5 @@ def test_lookups():
         'price': 10.0
     }
     # with invalid product id, return None:
-    invalid_result = lookup_product("888888888", mock_products)
+    invalid_result = find_product("888888888", mock_products)
     assert invalid_result == None
