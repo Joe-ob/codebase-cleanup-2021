@@ -15,6 +15,8 @@ def format_usd(my_price):
     """
     return f"${my_price:,.2f}"
 
+
+
 def find_product(product_id, all_products):
     """Params :
             product_id (str) like "8"
