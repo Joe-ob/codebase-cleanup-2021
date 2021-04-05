@@ -61,6 +61,3 @@ if __name__ == '__main__':
         print("The Computer Wins")
     elif winner == None:
         print("It's a Tie!")
-
-
-
