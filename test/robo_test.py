@@ -24,3 +24,17 @@ def test_process(parsed_googl_response, parsed_oops_response):
     assert list(googl_df.columns) == ["date", "open", "high", "low", "close", "volume"]
 
     assert process_data(parsed_oops_response) is None
+
+def test_summarize():
+    assert summarize_data(process_data(mock_msft_response)) == {'latest_close': 237.71,
+    'recent high': 240.055
+    'recent low': 231.81}
+
+    assert summarize_data(process_data(mock_amzn_response)) == {'latest_close': 3091.86,
+    'recent high': 3131.7843
+    'recent low': 3030.05}
+
+def test_charting():
+    df = process_data(mock_amzn_response)
+    chart_df = prepare_data_for_charting(df)
+    assert chart_df["date"].tolist() = ['2030-03-10', '2030-03-11', '2030-03-12', '2030-03-15', '2030-03-16']
